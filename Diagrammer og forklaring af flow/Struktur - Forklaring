@@ -1,0 +1,18 @@
+Kort forklaring (og note til mig selv) oom arkitekturen:
+________________________________________________________
+
+Model:            kun data (Car, Customer).
+
+Repository:       kontrakt for dataadgang.
+
+RepositoryDB:     SQL-implementation af repo.
+
+Service:          regler/validering, bruger repo (DI).
+
+Flow (UI):        læser input, kalder service, printer.
+
+Menu:             viser valg og kalder flows.
+
+Main:             opretter alt og “wirer” det sammen.
+
+Kæde: Flow → Service → Repository → DB.
